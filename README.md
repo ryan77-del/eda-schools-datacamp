@@ -63,3 +63,13 @@ O conjunto de dados contém informações sobre escolas de NYC, incluindo:
 ---
 
 ## 📂 Estrutura do Projeto
+eda-schools-datacamp/
+├── assets/
+│   └── grafico_1.png
+│   └── grafico_2_png
+├── notebooks/
+│   └── top_10_escolas_por_SAT
+│   └── top_10_escolas_mat
+├── data/
+│   └── school_csv
+└── README.md
