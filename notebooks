@@ -1,0 +1,30 @@
+#Importando pandas
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+#Importando documento
+df = pd.read_csv('schools.csv')
+# Quais escolas de NYC têm os melhores resultados em matemática?
+filtro = df['average_math'] >= 640 # Filtro para escolas, 80% de 800 é igual 640
+best_math_schools = df[filtro][['school_name','average_math']].sort_values('average_math',ascending=False)
+
+best_math_schools
+
+best_math_schools.sort_values('average_math').plot('school_name','average_math',kind='barh',figsize=(10,6),legend= False,align='edge',color='blue')
+plt.tight_layout()
+plt.xticks(rotation=50)
+plt.xlabel('Média Matemática')
+plt.ylabel('Escolas')
+plt.title('Desempenho da Escolas')
+plt.xlim(600, 760)
+plt.xticks(np.arange(600,760,20))
+plt.show()
+
+
+# Quais são as 10 escolas com melhor desempenho com base nas pontuações combinadas do SAT?  
+df['total_SAT'] = df['average_math'] + df['average_reading'] + df['average_writing']
+# Ordenação em ordem descrescente,limitar a 10 escolas
+top_10_schools = df[['school_name','total_SAT']].sort_values('total_SAT',ascending = False).head(10)
+sns.barplot(data=top_10_schools,y='school_name',x='total_SAT',hue='school_name')
+plt.show()
