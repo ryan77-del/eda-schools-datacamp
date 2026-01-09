@@ -18,7 +18,6 @@ O projeto foi desenvolvido como parte de um projeto prático da DataCamp.
 - NumPy
 - Matplotlib
 - Seaborn
-- Jupyter Notebook
 
 ---
 
