@@ -5,6 +5,9 @@ import numpy as np
 import seaborn as sns
 #Importando documento
 df = pd.read_csv('schools.csv')
+df.info()
+df.shape
+df.columns
 # Quais escolas de NYC têm os melhores resultados em matemática?
 filtro = df['average_math'] >= 640 # Filtro para escolas, 80% de 800 é igual 640
 best_math_schools = df[filtro][['school_name','average_math']].sort_values('average_math',ascending=False)
