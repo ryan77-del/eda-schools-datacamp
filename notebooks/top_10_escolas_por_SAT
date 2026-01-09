@@ -1,0 +1,10 @@
+# Quais são as 10 escolas com melhor desempenho com base nas pontuações combinadas do SAT?  
+df['total_SAT'] = df['average_math'] + df['average_reading'] + df['average_writing']
+# Ordenação em ordem descrescente,limitar a 10 escolas
+top_10_schools = df[['school_name','total_SAT']].sort_values('total_SAT',ascending = False).head(10)
+
+top_10_schools
+
+
+sns.barplot(data=top_10_schools,y='school_name',x='total_SAT',hue='school_name')
+plt.show()
